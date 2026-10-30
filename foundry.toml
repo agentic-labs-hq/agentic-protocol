@@ -1,0 +1,12 @@
+# Agentic Protocol contracts — Foundry build configuration.
+# Protocol: solc 0.8.20, optimizer 200, Paris EVM (BSC-safe, no PUSH0).
+[profile.default]
+src = "contracts"
+test = "test"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.20"
+optimizer = true
+optimizer_runs = 200
+evm_version = "paris"
+fs_permissions = [{ access = "read", path = "./dex/out" }]

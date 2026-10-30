@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/generate-abis.mjs",
+  "contracts": [
+    {
+      "name": "AgenticToken",
+      "project": "root",
+      "abi": "AgenticToken.json"
+    },
+    {
+      "name": "AgenticTokenFactory",
+      "project": "root",
+      "abi": "AgenticTokenFactory.json"
+    },
+    {
+      "name": "AgenticPolicy",
+      "project": "root",
+      "abi": "AgenticPolicy.json"
+    },
+    {
+      "name": "AgenticPolicyRegistry",
+      "project": "root",
+      "abi": "AgenticPolicyRegistry.json"
+    },
+    {
+      "name": "AgenticAssetRegistry",
+      "project": "root",
+      "abi": "AgenticAssetRegistry.json"
+    },
+    {
+      "name": "AgenticQuoteAssetRegistry",
+      "project": "root",
+      "abi": "AgenticQuoteAssetRegistry.json"
+    },
+    {
+      "name": "AgenticVenueRegistry",
+      "project": "root",
+      "abi": "AgenticVenueRegistry.json"
+    },
+    {
+      "name": "AgenticIdentityRegistry",
+      "project": "root",
+      "abi": "AgenticIdentityRegistry.json"
+    },
+    {
+      "name": "AgenticIdAdapter",
+      "project": "root",
+      "abi": "AgenticIdAdapter.json"
+    },
+    {
+      "name": "AgenticTreasury",
+      "project": "root",
+      "abi": "AgenticTreasury.json"
+    },
+    {
+      "name": "AgenticFacilityFactoryV2",
+      "project": "root",
+      "abi": "AgenticFacilityFactoryV2.json"
+    },
+    {
+      "name": "AgenticFacilityBase",
+      "project": "root",
+      "abi": "AgenticFacilityBase.json"
+    },
+    {
+      "name": "AgenticVaultFacility",
+      "project": "root",
+      "abi": "AgenticVaultFacility.json"
+    },
+    {
+      "name": "AgenticLaunchFacility",
+      "project": "root",
+      "abi": "AgenticLaunchFacility.json"
+    },
+    {
+      "name": "AgenticLockerFacility",
+      "project": "root",
+      "abi": "AgenticLockerFacility.json"
+    },
+    {
+      "name": "AgenticGameFacility",
+      "project": "root",
+      "abi": "AgenticGameFacility.json"
+    },
+    {
+      "name": "AgenticEscrowFacilityV2",
+      "project": "root",
+      "abi": "AgenticEscrowFacilityV2.json"
+    },
+    {
+      "name": "AgentswapPoolFactory",
+      "project": "root",
+      "abi": "AgentswapPoolFactory.json"
+    },
+    {
+      "name": "AgentswapV3Factory",
+      "project": "dex",
+      "abi": "AgentswapV3Factory.json"
+    },
+    {
+      "name": "AgentswapPositionManager",
+      "project": "dex",
+      "abi": "AgentswapPositionManager.json"
+    },
+    {
+      "name": "AgentswapRouter",
+      "project": "dex",
+      "abi": "AgentswapRouter.json"
+    },
+    {
+      "name": "AgentswapQuoter",
+      "project": "dex",
+      "abi": "AgentswapQuoter.json"
+    },
+    {
+      "name": "UniswapV3Pool",
+      "project": "dex",
+      "abi": "UniswapV3Pool.json"
+    }
+  ]
+}

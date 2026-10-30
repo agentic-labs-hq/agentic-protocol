@@ -1,0 +1,13 @@
+out/
+cache/
+broadcast/
+node_modules/
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.DS_Store
+
+._*
+__MACOSX/
