@@ -46,8 +46,7 @@ creator  (address indexed)
 ```
 
 `kind` is `keccak256` of `VAULT`, `LAUNCH`, `LOCKER`, `GAME`, or `ESCROW`.
-`LENDING` is not supported by V2. Read `facilityType()` and `owner()` from the
-facility after creation.
+Read `facilityType()` and `owner()` from the facility after creation.
 
 ## Facility events
 

@@ -23,13 +23,12 @@
     "agentswapQuoter": "0xDB1874Adb5432ed3EC2153192c4243c64111AA5e",
     "nftDescriptor": "0xb078D5B6CD021d7921D48D842d9a2A0abF9F1E79",
     "positionDescriptor": "0x7265b042a8Fe02309EA2c321C5De0d16bE863ad4",
-    "agenticEscrowV2TemplateDeployer": "0x461d62f74D1Da990643F99A39B2b1052B4008d72",
-    "legacyAgenticFacilityFactory": "0x7B344189e3939A44CCF99187270B56D201217A4c"
+    "agenticEscrowV2TemplateDeployer": "0x461d62f74D1Da990643F99A39B2b1052B4008d72"
   },
   "quoteAssets": {
     "WBNB": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "USDT": "0x55d398326f99059fF775485246999027B3197955"
   },
-  "notes": "Public BSC mainnet address book for Agentic Protocol and Agentswap. agenticFacilityFactory is the registered Facility V2 factory; legacyAgenticFacilityFactory is old v1 and must not be used for new facilities. Read-only addresses; no signing keys.",
+  "notes": "Public BSC mainnet address book for Agentic Protocol and Agentswap. agenticFacilityFactory is the registered Facility V2 factory. Deprecated v1 factory 0x7B344189e3939A44CCF99187270B56D201217A4c is not a registrar and must not be used for new facilities. Read-only addresses; no signing keys.",
   "facilityV2DeploymentBlock": 130519458
 }

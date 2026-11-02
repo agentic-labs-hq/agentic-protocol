@@ -39,8 +39,7 @@ This guide covers the **Facility V2 builder path**:
 - ESCROW ABI: [`../abi/AgenticEscrowFacilityV2.json`](../abi/AgenticEscrowFacilityV2.json)
 
 Facility V2 supports `VAULT`, `LAUNCH`, `LOCKER`, `GAME`, and `ESCROW`; use the
-V2 factory for every new facility. The old v1 factory and legacy LENDING/ESCROW
-sources are documented in [Legacy v1 and LENDING](#5-legacy-v1-and-lending).
+V2 factory for every new facility.
 
 ## 1. Create a facility
 
@@ -70,9 +69,6 @@ LOCKER = keccak256("LOCKER")
 GAME   = keccak256("GAME")
 ESCROW = keccak256("ESCROW")
 ```
-
-`LENDING` is intentionally not supported by V2 and returns false from
-`isSupportedType`.
 
 ### `initData` encodings
 
@@ -105,10 +101,8 @@ particular:
 - `migrate(replacement)` is available only after the facility is revoked; the
   replacement must be the registry replacement of the same category and
   subtype. Governance can revoke but cannot redirect a project replacement.
-- Do **not** set a legacy v1 ESCROW as a V2 migration target. The generic base
-  migration checks category/subtype, not implementation generation; funds sent
-  back to a v1 target can be locked again by v1 state. Verify target
-  factory/codehash/roles and a full target outflow before any migration.
+- Before any migration, verify the target factory, codehash, roles, and a full
+  target outflow.
 - Functions not listed for a subtype revert. Some inherited functions are
   intentionally reverting stubs (for example `LOCKER.release`,
   `GAME.liquidate`, `ESCROW.consume`); do not call them.
@@ -197,15 +191,7 @@ facilityFactory.createFacility(kind, initData)
 
 The example does not include a private key. Sign with your own wallet.
 
-## 5. Legacy v1 and LENDING
-
-The old v1 factory and its ESCROW/LENDING templates are legacy deployed code.
-They are not the current builder path, the old factory is no longer a
-CUSTODY/PURPOSE registrar, and LENDING is not supported by V2. Do not use them
-for new facilities. Existing v1 balances have their own migration constraints;
-see the constraints below.
-
-## 6. Important constraints
+## 5. Important constraints
 
 - The facility's gated transfers still pass the token policy. Facility creation
   does not bypass token eligibility.
@@ -214,5 +200,3 @@ see the constraints below.
 - There is no facility-to-facility gated transfer.
 - No facility LP and no LP-NFT custody in the current deployment.
 - Project owners are responsible for their own role assignment and operations.
-- Existing v1 ESCROW balances that are already locked in `NONE` or a terminal
-  state cannot be recovered by switching the factory or by migrating to V2.

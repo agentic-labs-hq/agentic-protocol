@@ -86,13 +86,6 @@ Public BSC mainnet addresses are in [`deployments/56.json`](deployments/56.json)
 The contracts are live; this repository does not redeploy them. The V2 facility
 factory is the registered CUSTODY/PURPOSE builder path.
 
-## Legacy
-
-The old v1 facility factory and its ESCROW/LENDING templates remain in the
-repository as legacy deployed source only. Do not use them for new facilities.
-The V2 factory is the current builder path; see
-[FACILITY_GUIDE.md](docs/FACILITY_GUIDE.md#5-legacy-v1-and-lending).
-
 ## Security
 
 This repository contains no private keys, signer material, or deployment

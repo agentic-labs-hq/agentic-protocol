@@ -137,9 +137,6 @@ facility, not one of the five project templates.
 | **Subtype** | The same registry label when used to map a facility to its category; append-only. |
 | **Venue** | A broad word for a registry member; it includes DEX pools and project facilities, not only DEX contracts. |
 
-Facility V2 supports only `VAULT`, `LAUNCH`, `LOCKER`, `GAME`, and `ESCROW`.
-LENDING is not part of the current builder set.
-
 Concrete example:
 
 - A pool created by `AgentswapPoolFactory` is registered with

@@ -55,9 +55,8 @@ DEX tests include a real-core address/hash check.
 ## Deployed records
 
 Public mainnet addresses are in [`../deployments/56.json`](../deployments/56.json).
-The legacy deployment records and the Facility V2 factory/helper have BscScan
-source verification. Use the explorer's source and compiler settings as the
-deployed-instance record:
+The Facility V2 factory and helper have BscScan source verification. Use the
+explorer's source and compiler settings as the deployed-instance record:
 
 - Factory: https://bscscan.com/address/0xf9E9A9F98e012C01994B91D83b57278ED08d4534#code
 - Helper: https://bscscan.com/address/0x461d62f74D1Da990643F99A39B2b1052B4008d72#code

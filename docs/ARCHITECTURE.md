@@ -69,14 +69,12 @@ The word "facility" has two scopes:
 The policy sees the facility **category**; project builders choose a **kind**
 (template). `CUSTODY` (`VAULT`, `LAUNCH`, `LOCKER`) pays gated tokens only to
 agents. `PURPOSE` (`GAME`, `ESCROW`) provides agent-to-purpose and
-purpose-to-agent utility flows. LENDING is not part of the V2 builder set.
+purpose-to-agent utility flows.
 
 Facilities are created permissionlessly through `AgenticFacilityFactoryV2`.
 The factory supports `VAULT`, `LAUNCH`, `LOCKER`, `GAME`, and `ESCROW`; it
 checks a canonical codehash, so proxies and arbitrary implementations are
-rejected. `LENDING` is intentionally not supported. The older v1 factory and
-ESCROW/LENDING templates are legacy deployed code and are not the public builder
-path. See [FACILITY_GUIDE.md](FACILITY_GUIDE.md).
+rejected. See [FACILITY_GUIDE.md](FACILITY_GUIDE.md).
 
 ## Agentswap DEX
 
