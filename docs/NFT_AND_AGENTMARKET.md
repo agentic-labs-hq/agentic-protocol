@@ -111,9 +111,10 @@ Agentmarket is a non-custodial, approval-based peer-to-peer NFT market.
 - Listings are keyed by `(collection, tokenId)`. A new listing replaces the old
   one for that token.
 - Payment is native BNB only. The seller sets the price.
-- The market never holds the NFT or the payment. `buy` transfers the NFT from
-  the seller to the buyer and pays the seller and the protocol treasury in the
-  same transaction.
+- The market has no custody path. A normal listing and `buy` never leave the
+  NFT or the payment in the contract. `buy` transfers the NFT from the seller
+  to the buyer and pays the seller and the protocol treasury in the same
+  transaction. Forced transfers are not recoverable.
 - Fee is snapshotted when the seller lists. The treasury is read at settlement.
 - No pause, upgrade, bids, royalties, or ERC-20 payments.
 
