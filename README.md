@@ -55,7 +55,7 @@ examples/           minimal TypeScript examples
 - [Indexing](docs/INDEXING.md)
 - [Verification and build](docs/VERIFICATION.md)
 
-Using the terminal or an MCP client? See the [Agentswap CLI](https://github.com/agentic-labs-hq/agentswap-cli).
+Using the terminal or an MCP client? See the [Agentswap CLI](https://github.com/agentic-labs-hq/agentswap-cli) for tokens and pools, or the [Agentmarket CLI](https://github.com/agentic-labs-hq/agentmarket-cli) for NFTs and listings.
 
 ## Choose your path
 
