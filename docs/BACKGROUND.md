@@ -77,8 +77,10 @@ for the connected wallet:
 ```sh
 agentswap doctor --json      # tokens and DEX
 agentmarket doctor --json    # NFTs and Agentmarket
-``` For claim status and the external account flow, use
-Binance's Agentic Wallet tooling:
+```
+
+For claim status and the external account flow, use Binance's Agentic Wallet
+tooling:
 
 ```sh
 baw wallet agent-id --json

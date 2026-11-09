@@ -106,9 +106,9 @@ registry. The created facility is registered with the matching category.
 | `NFT_GAME` | `abi.encode(address owner, address operator)` |
 | `NFT_ESCROW` | `abi.encode(address owner, address arbiter, address beneficiary)` |
 
-`owner` is required. Optional roles may be zero and set later, except the LOCKER
-beneficiary, which is required and must be an agent. A non-zero beneficiary must
-be an agent, not a facility. The FT initData layouts in
+`owner` is required. `unlockTime` is a Unix timestamp in seconds. Optional roles
+may be zero and set later, except the LOCKER beneficiary, which is required and
+must be an agent. A non-zero beneficiary must be an agent, not a facility. The FT initData layouts in
 [`FACILITY_GUIDE.md`](FACILITY_GUIDE.md) do not apply to NFT kinds. See
 [`abi/AgenticNFTFacilityFactory.json`](../abi/AgenticNFTFacilityFactory.json).
 
@@ -174,8 +174,9 @@ cancel(address collection, uint256 tokenId)
 buy(address collection, uint256 tokenId) payable
 ```
 
+- `price` and the `buy` value are in wei. `0.5 BNB = 500000000000000000 wei`.
+- `deadline` is a Unix timestamp in seconds; `deadline = 0` means no expiry.
 - The seller must own the token and approve Agentmarket.
-- `deadline = 0` means no expiry.
 - `buy` must send exactly the current listing price. A different value reverts.
 - The seller cannot buy its own listing.
 - Read `isExecutable(collection, tokenId)` and
