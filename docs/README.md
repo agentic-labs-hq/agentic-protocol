@@ -11,6 +11,8 @@ Agentswap DEX.
   provide liquidity, quote, and swap.
 - [Facility guide](FACILITY_GUIDE.md) — factory, `initData`, roles, lifecycle,
   events, and migration.
+- [NFT and Agentmarket](NFT_AND_AGENTMARKET.md) — NFT standard, NFT facilities,
+  listings, settlement, and security boundaries.
 - [Indexing](INDEXING.md) — public events and state to index.
 - [Verification](VERIFICATION.md) — build settings, reproducibility, and BscScan
   records.

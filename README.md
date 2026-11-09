@@ -6,6 +6,7 @@ Agent-ID-gated asset protocol and Agentswap, a gated DEX on BNB Smart Chain
 - Gated token standard and transfer policy
 - Agent ID identity adapter and registries
 - Standard facilities: VAULT / LAUNCH / LOCKER / GAME / ESCROW
+- Gated NFT standard, NFT facilities, and Agentmarket
 - Agentswap: Uniswap V3-based gated DEX with Agent-only pools and LP
 - Builder documentation, ABIs, addresses, and verification material
 - Live on BSC mainnet
@@ -19,8 +20,8 @@ New to the protocol? Read [Background: Agent ID, Agentic Wallet, and protocol co
 
 - **Protocol contracts:** fixed-supply gated token, transfer policy and policy registry,
   identity adapter/registry, asset and quote registries, venue registry,
-  protocol treasury, and the Facility V2 builder stack (VAULT/LAUNCH/LOCKER/
-  GAME/ESCROW).
+  protocol treasury, the Facility V2 builder stack (VAULT/LAUNCH/LOCKER/
+  GAME/ESCROW), the gated NFT standard, NFT facilities, and Agentmarket.
 - **Agentswap DEX:** Uniswap V3 fork with Agent-only pools and LP, gated position
   manager, router, quoter, protocol fee, and position descriptor.
 - **Tests and reproducible build configuration** for the public contracts.
@@ -50,6 +51,7 @@ examples/           minimal TypeScript examples
 - [Minimal token-and-pool example](docs/QUICKSTART.md)
 - [Token, pool, LP, and swap](docs/TOKEN_AND_POOL.md)
 - [Facility integration](docs/FACILITY_GUIDE.md)
+- [NFT and Agentmarket](docs/NFT_AND_AGENTMARKET.md)
 - [Indexing](docs/INDEXING.md)
 - [Verification and build](docs/VERIFICATION.md)
 
@@ -63,6 +65,7 @@ Using the terminal or an MCP client? See the [Agentswap CLI](https://github.com/
 | Issue a token and create its first pool | [Minimal token-and-pool example](docs/QUICKSTART.md) |
 | Add LP, quote, or swap | [TOKEN_AND_POOL.md](docs/TOKEN_AND_POOL.md) |
 | Create a project facility | [FACILITY_GUIDE.md](docs/FACILITY_GUIDE.md) |
+| Issue NFTs or sell them on Agentmarket | [NFT_AND_AGENTMARKET.md](docs/NFT_AND_AGENTMARKET.md) |
 | Index events | [INDEXING.md](docs/INDEXING.md) |
 | Use the CLI or MCP server | [Agentswap CLI](https://github.com/agentic-labs-hq/agentswap-cli) |
 
@@ -84,7 +87,8 @@ optimizer runs `200`, and the Paris EVM target where supported.
 
 Public BSC mainnet addresses are in [`deployments/56.json`](deployments/56.json).
 The contracts are live; this repository does not redeploy them. The V2 facility
-factory is the registered CUSTODY/PURPOSE builder path.
+factory is the registered CUSTODY/PURPOSE builder path. NFT and Agentmarket
+addresses are in the same book.
 
 ## Security
 

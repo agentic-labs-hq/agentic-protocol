@@ -23,12 +23,18 @@
     "agentswapQuoter": "0xDB1874Adb5432ed3EC2153192c4243c64111AA5e",
     "nftDescriptor": "0xb078D5B6CD021d7921D48D842d9a2A0abF9F1E79",
     "positionDescriptor": "0x7265b042a8Fe02309EA2c321C5De0d16bE863ad4",
-    "agenticEscrowV2TemplateDeployer": "0x461d62f74D1Da990643F99A39B2b1052B4008d72"
+    "agenticEscrowV2TemplateDeployer": "0x461d62f74D1Da990643F99A39B2b1052B4008d72",
+    "agenticNFTRegistry": "0x5B2e805B276D9d756f5CacF58a4599eeCc8e3550",
+    "agenticNFTFactory": "0x9902405C5Ca9800AFE031af837C442a0F2aCaD62",
+    "agenticNFTFacilityFactory": "0x2039D7d5BcB015B64d35Bc65cBa26E3D8FD41615",
+    "agentmarket": "0x4e2aCC31a1dE4cA5DfeeD43956c607e46dd66982"
   },
   "quoteAssets": {
     "WBNB": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "USDT": "0x55d398326f99059fF775485246999027B3197955"
   },
-  "notes": "Public BSC mainnet address book for Agentic Protocol and Agentswap. agenticFacilityFactory is the registered Facility V2 factory. Deprecated v1 factory 0x7B344189e3939A44CCF99187270B56D201217A4c is not a registrar and must not be used for new facilities. Read-only addresses; no signing keys.",
-  "facilityV2DeploymentBlock": 130519458
+  "notes": "Public BSC mainnet address book for Agentic Protocol, Agentswap and Agentmarket. agenticFacilityFactory is the registered Facility V2 factory. Deprecated v1 factory 0x7B344189e3939A44CCF99187270B56D201217A4c is not a registrar and must not be used for new facilities. agenticNFTRegistry and agenticNFTFactory serve the NFT standard; agenticNFTFacilityFactory is registered for CUSTODY and PURPOSE NFT facilities; agentmarket settles NFT sales in BNB. Read-only addresses; no signing keys.",
+  "facilityV2DeploymentBlock": 130519458,
+  "agentmarketFeeBps": 100,
+  "nftDeploymentBlock": 132557209
 }

@@ -88,6 +88,61 @@
       "abi": "AgenticEscrowFacilityV2.json"
     },
     {
+      "name": "AgenticNFT",
+      "project": "root",
+      "abi": "AgenticNFT.json"
+    },
+    {
+      "name": "AgenticNFTFactory",
+      "project": "root",
+      "abi": "AgenticNFTFactory.json"
+    },
+    {
+      "name": "AgenticNFTRegistry",
+      "project": "root",
+      "abi": "AgenticNFTRegistry.json"
+    },
+    {
+      "name": "AgenticNFTFacilityBase",
+      "project": "root",
+      "abi": "AgenticNFTFacilityBase.json"
+    },
+    {
+      "name": "AgenticNFTVaultFacility",
+      "project": "root",
+      "abi": "AgenticNFTVaultFacility.json"
+    },
+    {
+      "name": "AgenticNFTLaunchFacility",
+      "project": "root",
+      "abi": "AgenticNFTLaunchFacility.json"
+    },
+    {
+      "name": "AgenticNFTLockerFacility",
+      "project": "root",
+      "abi": "AgenticNFTLockerFacility.json"
+    },
+    {
+      "name": "AgenticNFTGameFacility",
+      "project": "root",
+      "abi": "AgenticNFTGameFacility.json"
+    },
+    {
+      "name": "AgenticNFTEscrowFacility",
+      "project": "root",
+      "abi": "AgenticNFTEscrowFacility.json"
+    },
+    {
+      "name": "AgenticNFTFacilityFactory",
+      "project": "root",
+      "abi": "AgenticNFTFacilityFactory.json"
+    },
+    {
+      "name": "Agentmarket",
+      "project": "root",
+      "abi": "Agentmarket.json"
+    },
+    {
       "name": "AgentswapPoolFactory",
       "project": "root",
       "abi": "AgentswapPoolFactory.json"
