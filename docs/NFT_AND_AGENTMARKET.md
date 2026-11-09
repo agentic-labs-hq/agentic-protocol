@@ -56,8 +56,9 @@ createCollection(
 - The factory registers the collection in `AgenticNFTRegistry` and emits
   `CollectionCreated`.
 
-Read the new collection address from the `CollectionCreated` event or from the
-transaction trace. It is not returned by a static call.
+The transaction does not return the new collection address. Read it from the
+`CollectionCreated` event in the receipt. A static call can compute the predicted
+address, but it does not persist the collection.
 
 ### Read a collection
 
@@ -86,11 +87,27 @@ Five facility types extend the existing venue registry:
 | `NFT_LAUNCH` | CUSTODY | Primary sale custody |
 | `NFT_LOCKER` | CUSTODY | Time-locked NFT lock |
 | `NFT_GAME` | PURPOSE | Game asset custody and consumption |
-| `NFT_ESCROW` | PURPOSE | Owner-controlled NFT escrow |
+| `NFT_ESCROW` | PURPOSE | Role-controlled NFT escrow |
 
 Create one with `AgenticNFTFacilityFactory.createFacility(bytes32 kind, bytes initData)`.
 The factory is registered as a CUSTODY and PURPOSE registrar in the venue
 registry. The created facility is registered with the matching category.
+
+`kind` is the bytes32 constant in `Types.sol`. `initData` layouts:
+
+| Kind | `initData` |
+| --- | --- |
+| `NFT_VAULT` | `abi.encode(address owner)` |
+| `NFT_LAUNCH` | `abi.encode(address owner, address operator, address beneficiary)` |
+| `NFT_LOCKER` | `abi.encode(address owner, address beneficiary, uint64 unlockTime)` |
+| `NFT_GAME` | `abi.encode(address owner, address operator)` |
+| `NFT_ESCROW` | `abi.encode(address owner, address arbiter, address beneficiary)` |
+
+`owner` is required. Optional roles may be zero and set later, except the LOCKER
+beneficiary, which is required and must be an agent. A non-zero beneficiary must
+be an agent, not a facility. The FT initData layouts in
+[`FACILITY_GUIDE.md`](FACILITY_GUIDE.md) do not apply to NFT kinds. See
+[`abi/AgenticNFTFacilityFactory.json`](../abi/AgenticNFTFacilityFactory.json).
 
 Funding rules:
 
@@ -159,7 +176,8 @@ older transaction; a price change makes the old transaction revert.
 - Cross-type mis-send is a user risk. The protocol does not whitelist receiver
   types. A creator can mint an NFT into a facility that cannot transfer NFTs;
   the token can become stuck.
-- `NFT_ESCROW` is owner-controlled. It does not record a depositor.
+- `NFT_ESCROW` is role-controlled: the beneficiary or arbiter releases, the
+  arbiter refunds, and the owner sets the roles. It does not record a depositor.
 - The metadata resolver address is immutable, but its content is not.
 - A treasury that rejects BNB makes `buy` revert. Fees continue to go to the old
   treasury until governance changes it.
