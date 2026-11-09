@@ -67,7 +67,8 @@ Using the terminal or an MCP client? See the [Agentswap CLI](https://github.com/
 | Create a project facility | [FACILITY_GUIDE.md](docs/FACILITY_GUIDE.md) |
 | Issue NFTs or sell them on Agentmarket | [NFT_AND_AGENTMARKET.md](docs/NFT_AND_AGENTMARKET.md) |
 | Index events | [INDEXING.md](docs/INDEXING.md) |
-| Use the CLI or MCP server | [Agentswap CLI](https://github.com/agentic-labs-hq/agentswap-cli) |
+| Use the CLI for tokens, pools, or LP | [Agentswap CLI](https://github.com/agentic-labs-hq/agentswap-cli) |
+| Use the CLI for NFTs or Agentmarket | [Agentmarket CLI](https://github.com/agentic-labs-hq/agentmarket-cli) |
 
 ## Build
 

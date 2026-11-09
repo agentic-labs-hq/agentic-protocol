@@ -136,14 +136,17 @@ but its FT function names and `amount` parameters do not apply to NFT kinds.
 
 ### Migration
 
-1. Governance revokes the facility and sets a replacement of the same category
-   and type. Create the replacement with `AgenticNFTFacilityFactory.createFacility`.
-2. The owner calls `migrate(replacement)`. This records the target and does not
+1. Create the replacement with `AgenticNFTFacilityFactory.createFacility`.
+2. Governance calls `venueRegistry.revokeFacility(oldFacility)`.
+3. The facility owner calls `venueRegistry.setReplacement(oldFacility,
+   replacement)`. For CUSTODY and PURPOSE facilities, governance cannot choose
+   the replacement; only the facility owner can.
+4. The owner calls `migrate(replacement)`. This records the target and does not
    move NFTs. The facility must already be revoked, and the replacement must be
    active and match the category and type.
-3. The owner calls `migrateTokens(collection, tokenIds)` in chunks. Every token
+5. The owner calls `migrateTokens(collection, tokenIds)` in chunks. Every token
    must be held by the facility; each is sent to the replacement.
-4. `NFT_LOCKER` can migrate only after `unlockTime`. `NFT_GAME` reverts for
+6. `NFT_LOCKER` can migrate only after `unlockTime`. `NFT_GAME` reverts for
    consumed tokens. The other templates have no extra time gate.
 
 ## Agentmarket

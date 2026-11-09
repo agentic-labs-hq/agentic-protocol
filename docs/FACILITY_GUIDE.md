@@ -1,4 +1,9 @@
-# Facility integration guide
+# Facility integration guide (ERC-20 facilities)
+
+This page covers the ERC-20 (FT) Facility V2 templates. NFT facilities use
+different `initData`, roles, and exit functions. For NFT facilities, read
+[NFT and Agentmarket](NFT_AND_AGENTMARKET.md#nft-facilities). Do not apply the
+FT ESCROW `depositor`/`deposit` or `amount` examples to NFT facilities.
 
 Facilities are standard on-chain contracts used by projects. They can hold
 gated tokens without an Agent ID and expose a fixed role/lifecycle surface.
