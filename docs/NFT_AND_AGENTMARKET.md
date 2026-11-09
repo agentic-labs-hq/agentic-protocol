@@ -24,9 +24,11 @@ Governance is the protocol Safe. The market fee is 100 bps, capped at 500 bps.
 - `mint(address to, uint256 count)` and
   `mintBatch(address[] recipients, uint256[] counts)` respect the remaining
   supply.
-- Every mint and transfer calls the collection's `policy.canTransfer`. A
-  transfer to a wallet without a valid Agent ID, or to an ineligible facility,
-  reverts.
+- Every mint and transfer calls the collection's `policy`. Under the canonical
+  policy, a transfer to a wallet without a valid Agent ID, or to an ineligible
+  facility, reverts. A collection created with another policy follows that
+  policy; read `policy()` and the policy registry before assuming eligibility
+  rules.
 - No burn, pause, admin transfer, proxy, or upgrade. The policy address is
   immutable.
 - Metadata uses one of two immutable modes: `baseURI + tokenId`, or an immutable
@@ -52,7 +54,8 @@ createCollection(
 - `policy = address(0)` uses the policy registry's current policy.
 - `maxSupply` must be greater than zero.
 - Set either `baseURI` or `metadataResolver`. With a resolver, `baseURI` may be
-  empty.
+  empty. A `policy` of zero uses the policy registry's current policy, called the
+  canonical policy in this page.
 - The factory registers the collection in `AgenticNFTRegistry` and emits
   `CollectionCreated`.
 
@@ -118,8 +121,30 @@ Funding rules:
 - Outflows use `transferFrom`; the receiver does not need to implement
   `onERC721Received`.
 
-See the [facility guide](FACILITY_GUIDE.md) for the shared factory and migration
-model.
+Facility lifecycle for gated collections under the canonical policy:
+
+| Facility | Enter | Exit | Caller | Recipient | Limits |
+| --- | --- | --- | --- | --- | --- |
+| `NFT_VAULT` | Mint to the facility | `release(collection, tokenId, to)` | Owner | Agent or migration target | No public deposit; no time gate |
+| `NFT_LAUNCH` | Mint to the facility | `release(collection, tokenId, to)` | Operator | Agent or migration target; after `close`, only beneficiary or migration target | `close` by owner or operator; beneficiary must be set before close |
+| `NFT_LOCKER` | Mint to the facility | `unlock(collection, tokenId, to)` | Anyone after `unlockTime` | Beneficiary or migration target | `setBeneficiary` and `extend` are owner-only before unlock; no changes after |
+| `NFT_GAME` | Agent transfer | `release` / `refund`; `consume` | Operator | Agent or migration target | `consume` is permanent; consumed tokens cannot be released, refunded, or migrated |
+| `NFT_ESCROW` | Agent transfer | `release`; `refund` | Beneficiary or arbiter for release; arbiter for refund | Agent or migration target | Owner sets roles; no depositor record |
+
+The [facility guide](FACILITY_GUIDE.md) shares the factory and migration concepts,
+but its FT function names and `amount` parameters do not apply to NFT kinds.
+
+### Migration
+
+1. Governance revokes the facility and sets a replacement of the same category
+   and type. Create the replacement with `AgenticNFTFacilityFactory.createFacility`.
+2. The owner calls `migrate(replacement)`. This records the target and does not
+   move NFTs. The facility must already be revoked, and the replacement must be
+   active and match the category and type.
+3. The owner calls `migrateTokens(collection, tokenIds)` in chunks. Every token
+   must be held by the facility; each is sent to the replacement.
+4. `NFT_LOCKER` can migrate only after `unlockTime`. `NFT_GAME` reverts for
+   consumed tokens. The other templates have no extra time gate.
 
 ## Agentmarket
 
@@ -133,6 +158,9 @@ Agentmarket is a non-custodial, approval-based peer-to-peer NFT market.
   to the buyer and pays the seller and the protocol treasury in the same
   transaction. Forced transfers are not recoverable.
 - Fee is snapshotted when the seller lists. The treasury is read at settlement.
+  At 100 bps (1%), a 0.5 BNB listing pays a 0.005 BNB fee; the seller receives
+  0.495 BNB. The buyer pays 0.5 BNB plus gas. 500 bps is 5%. A later fee change
+  does not alter an existing listing.
 - No pause, upgrade, bids, royalties, or ERC-20 payments.
 
 ### List, cancel, buy
