@@ -94,9 +94,10 @@ registry. The created facility is registered with the matching category.
 
 Funding rules:
 
-- CUSTODY facilities receive NFTs only by minting directly to the facility.
-  They have no public NFT deposit function.
-- PURPOSE facilities receive NFTs by agent transfer.
+- Under the canonical policy, CUSTODY facilities receive NFTs only by minting
+  directly to the facility. They have no public NFT deposit function.
+- Under the canonical policy, PURPOSE facilities receive NFTs by agent
+  transfer.
 - Outflows use `transferFrom`; the receiver does not need to implement
   `onERC721Received`.
 
